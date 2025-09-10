@@ -146,8 +146,12 @@ def main():
         
         #Firestore bağlantısı
         if constant ==0:
-            cred = credentials.Certificate("/etc/secrets/firebase_key.json")
-            firebase_admin.initialize_app(cred)
+            firebase_key_json = os.environ.get("firebase_key")  # Render secret
+            cred_dict = json.loads(firebase_key_json)
+            cred = credentials.Certificate(cred_dict)
+            initialize_app(cred)
+            #cred = credentials.Certificate("/etc/secrets/firebase_key.json")
+            #firebase_admin.initialize_app(cred)
             db = firestore.client()
         else:
             pass

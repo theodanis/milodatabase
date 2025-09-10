@@ -149,14 +149,12 @@ def main():
         #Firestore bağlantısı
         if constant ==0:
             firebase_key_json = os.environ.get("firebase_key")  # Render secret
-
-            with open("/etc/secrets/firebase_key.json", "r") as f:
-                cred_dict = json.load(f)
+            if not firebase_key_json:
+                raise ValueError("FIREBASE_KEY env variable bulunamadı!")
             
+            cred_dict = json.loads(firebase_key_json)
             cred = credentials.Certificate(cred_dict)
             initialize_app(cred)
-            #cred = credentials.Certificate("/etc/secrets/firebase_key.json")
-            #firebase_admin.initialize_app(cred)
             db = firestore.client()
         else:
             pass

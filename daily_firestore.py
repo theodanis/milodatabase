@@ -160,7 +160,7 @@ def main():
         #Firestore bağlantısı
         if constant ==0:
             cred = get_firebase_credentials()
-            initialize_app(cred)
+            firebase_admin.initialize_app(cred)
             db = firestore.client()
         else:
             pass

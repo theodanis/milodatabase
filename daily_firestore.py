@@ -149,7 +149,10 @@ def main():
         #Firestore bağlantısı
         if constant ==0:
             firebase_key_json = os.environ.get("firebase_key")  # Render secret
-            cred_dict = json.loads(firebase_key_json)
+
+            with open("/etc/secrets/firebase_key.json", "r") as f:
+                cred_dict = json.load(f)
+            
             cred = credentials.Certificate(cred_dict)
             initialize_app(cred)
             #cred = credentials.Certificate("/etc/secrets/firebase_key.json")

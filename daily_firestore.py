@@ -1,6 +1,7 @@
 def main():
     import requests
     from datetime import date, timedelta
+    import os
     
     today = date.today()
     tomorrow = today + timedelta(days=1)

@@ -145,15 +145,21 @@ def main():
         
         import firebase_admin
         from firebase_admin import credentials, firestore
+        def get_firebase_credentials():
+            firebase_key = os.environ.get("firebase_key")
+            if not firebase_key:
+                raise ValueError("FIREBASE_KEY environment variable bulunamadı!")
+        
+            try:
+                cred_dict = json.loads(firebase_key)
+            except json.JSONDecodeError as e:
+                raise ValueError(f"FIREBASE_KEY decode edilemedi: {e}")
+        
+            return credentials.Certificate(cred_dict)
         
         #Firestore bağlantısı
         if constant ==0:
-            firebase_key_json = os.environ.get("firebase_key")  # Render secret
-            if not firebase_key_json:
-                raise ValueError("FIREBASE_KEY env variable bulunamadı!")
-            
-            cred_dict = json.loads(firebase_key_json)
-            cred = credentials.Certificate(cred_dict)
+            cred = get_firebase_credentials()
             initialize_app(cred)
             db = firestore.client()
         else:

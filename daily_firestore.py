@@ -146,7 +146,7 @@ def main():
         
         #Firestore bağlantısı
         if constant ==0:
-            cred = credentials.Certificate("/etc/secrets/burakdenemeserdar-firebase-adminsdk-fbsvc-74065c955f.json")
+            cred = credentials.Certificate("/etc/secrets/firebase_key.json")
             firebase_admin.initialize_app(cred)
             db = firestore.client()
         else:
@@ -184,7 +184,7 @@ def main():
     import pytz
     
     # Firestore başlat
-    #cred = credentials.Certificate("burakdenemeserdar-firebase-adminsdk-fbsvc-74065c955f.json")
+    #cred = credentials.Certificate(""/etc/secrets/firebase_key.json"")
     #firebase_admin.initialize_app(cred)
     #db = firestore.client()
     
@@ -442,7 +442,7 @@ def main():
     import time
     
     # --- Firebase Admin başlat ---
-    #cred = credentials.Certificate("burakdenemeserdar-firebase-adminsdk-fbsvc-74065c955f.json")
+    #cred = credentials.Certificate(""/etc/secrets/firebase_key.json"")
     #firebase_admin.initialize_app(cred)
     #db = firestore.client()
     
@@ -468,7 +468,7 @@ def main():
     from firebase_admin import credentials, firestore
     
     # --- Firebase Admin başlat ---
-    #cred = credentials.Certificate("burakdenemeserdar-firebase-adminsdk-fbsvc-74065c955f.json")
+    #cred = credentials.Certificate(""/etc/secrets/firebase_key.json"")
     #firebase_admin.initialize_app(cred)
     #db = firestore.client()
     

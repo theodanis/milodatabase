@@ -146,7 +146,7 @@ def main():
         
         #Firestore bağlantısı
         if constant ==0:
-            cred = credentials.Certificate("burakdenemeserdar-firebase-adminsdk-fbsvc-74065c955f.json")  # kendi json key dosyan
+            cred = credentials.Certificate("/etc/secrets/burakdenemeserdar-firebase-adminsdk-fbsvc-74065c955f.json")
             firebase_admin.initialize_app(cred)
             db = firestore.client()
         else:

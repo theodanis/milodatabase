@@ -468,7 +468,10 @@ def main():
             continue  # Takım bulunamazsa geç
     
         # 2️⃣ Yeni veriyi ekle
-        db.collection("team_stats").document(stats["team"]).set(stats)
+        try:
+            db.collection("team_stats").document(stats["team"]).set(stats)
+        except:
+            pass
         print(f"{stats['team']} Firestore'a eklendi ✅")
     
         # API limitine takılmamak için 1 saniye bekle

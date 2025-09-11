@@ -434,7 +434,7 @@ def main():
                 "3,5 UST":total35u,
                 "3,5 ALT":total35a,
                 "EV SAHİBİ YARI KAZANIR:EVET" :evyarıY,
-                "EV SAHİBİ YARI KAZANIR:HAYRI" :evyarıN,
+                "EV SAHİBİ YARI KAZANIR:HAYIR" :evyarıN,
                 "DEPLASMAN YARI KAZANIR:EVET" :depyarıY,
                 "DEPLASMAN YARI KAZANIR:HAYIR" :depyarıN,
                 "MS 1 KG VAR" :mskg1v,   

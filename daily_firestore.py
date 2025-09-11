@@ -470,9 +470,10 @@ def main():
         # 2️⃣ Yeni veriyi ekle
         try:
             db.collection("team_stats").document(stats["team"]).set(stats)
+            print(f"{stats['team']} Firestore'a eklendi ✅")
         except:
             pass
-        print(f"{stats['team']} Firestore'a eklendi ✅")
+        
     
         # API limitine takılmamak için 1 saniye bekle
     
